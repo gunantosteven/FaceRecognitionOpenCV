@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: /home/gunanto/AndroidStudioProjects/FaceRecognitionOpenCV/libraries/opencv/src/org/opencv/engine/OpenCVEngineInterface.aidl
+ * Original file: /home/gunanto/FaceRecognitionOpenCV/libraries/opencv/src/org/opencv/engine/OpenCVEngineInterface.aidl
  */
 package org.opencv.engine;
 /**
