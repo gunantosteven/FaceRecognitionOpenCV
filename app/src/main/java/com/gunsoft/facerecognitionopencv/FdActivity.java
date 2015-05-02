@@ -17,12 +17,14 @@ import org.opencv.android.Utils;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;
+import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import com.gunsoft.facerecognitionopencv.R;
 
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
+import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
 import com.googlecode.javacv.cpp.opencv_imgproc;
@@ -464,6 +466,13 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
 
         mRgba = inputFrame.rgba();
         mGray = inputFrame.gray();
+
+        Mat rotImage = Imgproc.getRotationMatrix2D(new Point(mRgba.cols() / 2,
+                mRgba.rows() / 2), 90, 1.0);
+
+        Imgproc.warpAffine(mRgba, mRgba, rotImage, mRgba.size());
+
+        Imgproc.warpAffine(mGray, mGray, rotImage, mRgba.size());
 
         if (mAbsoluteFaceSize == 0) {
             int height = mGray.rows();

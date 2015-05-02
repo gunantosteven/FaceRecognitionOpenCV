@@ -7,42 +7,29 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="0.88"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.88" >
+            android:layout_height="wrap_content">
 
-            <LinearLayout
+            <com.gunsoft.facerecognitionopencv.Tutorial3View
+                android:id="@+id/tutorial3_activity_java_surface_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <Button
-                    android:id="@+id/buttonCat"
-                    android:layout_width="65dp"
-                    android:layout_height="68dp"
-                    android:text="@string/SViewAll" />
-
-                <com.gunsoft.facerecognitionopencv.Tutorial3View
-                    android:id="@+id/tutorial3_activity_java_surface_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.88" />
-
-                <ImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="120dp"
-                    android:layout_height="140dp"
-                    android:src="@drawable/lightbulb" />
-
-            </LinearLayout>
+                android:layout_height="302dp" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="66dp" >
+
+            <Button
+                android:id="@+id/buttonCat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SViewAll" />
 
             <TextView
                 android:id="@+id/textViewState"
@@ -77,18 +64,19 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/lightbulb"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
-
-            <ToggleButton
-                android:id="@+id/toggleButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.07"
-                android:text="@string/STrain"
-                android:textOff="@string/STrain"
-                android:textOn="@string/SStopTrain" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -102,26 +90,41 @@
                 android:id="@+id/editText1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.76"
+                android:layout_weight="2.29"
                 android:maxLines="1"
                 android:singleLine="true" >
 
                 <requestFocus />
             </EditText>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:weightSum="1">
+
             <ToggleButton
                 android:id="@+id/buttonBuscar"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="@string/SSearch"
                 android:textOff="@string/SSearch"
                 android:textOn="@string/SStopSearch"
                 android:checked="false" />
 
             <ToggleButton
+                android:id="@+id/toggleButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/STrain"
+                android:textOff="@string/STrain"
+                android:textOn="@string/SStopTrain" />
+
+            <ToggleButton
                 android:id="@+id/toggleButtonGrabar"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Grabar"
                 android:textOff="Rec"
                 android:textOn="Stop" />
@@ -130,10 +133,11 @@
                 android:id="@+id/imageButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.73"
                 android:src="@drawable/ic_stat_camera" />
 
+
         </LinearLayout>
+
 
     </LinearLayout>
 
