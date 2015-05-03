@@ -1,4 +1,5 @@
 1. Create a blank project.
 2. Import open cv to android studio : http://stackoverflow.com/questions/17767557/how-to-use-opencv-in-android-studio-using-gradle-build-tool
 3. Learn from someone coding https://github.com/ayuso2013/face-recognition
-4. make program independent from dependecy opencv manager
+4. Make program independent from dependecy opencv manager : http://stackoverflow.com/questions/23541938/opencv-android-without-opencv-manager
+5. Make camera portrait : http://stackoverflow.com/questions/28851864/opencv-android-portrait-mode-full-screen-setting/29259408#29259408

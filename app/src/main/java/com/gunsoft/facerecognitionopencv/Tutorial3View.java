@@ -93,6 +93,28 @@ public class Tutorial3View extends JavaCameraView {
         return mCamera.getParameters().getPreviewSize();
     }
 
+    public boolean isFrontCameraAvailable() {
+
+        int cameraCount = 0;
+        boolean isFrontCameraAvailable = false;
+        cameraCount = Camera.getNumberOfCameras();
+
+        while (cameraCount > 0) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            cameraCount--;
+            Camera.getCameraInfo(cameraCount, cameraInfo);
+
+
+            if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+                isFrontCameraAvailable = true;
+                break;
+            }
+
+        }
+
+        return isFrontCameraAvailable;
+    }
+
     public void takePicture(final String fileName) {
         Log.i(TAG, "Tacking picture");
         PictureCallback callback = new PictureCallback() {

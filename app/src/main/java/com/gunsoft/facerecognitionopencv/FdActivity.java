@@ -187,6 +187,11 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
                         Log.e(TAG, "Failed to load cascade. Exception thrown: " + e);
                     }
 
+                    if(mOpenCvCameraView.isFrontCameraAvailable())
+                    {
+                        // use front camera first run
+                        mOpenCvCameraView.setCameraIndex(org.opencv.android.CameraBridgeViewBase.CAMERA_ID_FRONT );
+                    }
                     mOpenCvCameraView.enableView();
               
                 } break;
