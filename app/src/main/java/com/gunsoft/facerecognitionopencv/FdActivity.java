@@ -249,6 +249,12 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
                          grabarOnclick();
                      }
             	}
+                else if (msg.obj == "IDLE")
+                {
+                    ivGreen.setVisibility(View.INVISIBLE);
+                    ivYellow.setVisibility(View.INVISIBLE);
+                    ivRed.setVisibility(View.INVISIBLE);
+                }
                 else if (msg.obj == "Cannot Detect")
                 {
                     ivGreen.setVisibility(View.INVISIBLE);
@@ -408,7 +414,6 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
      					toggleButtonTrain.setVisibility(View.VISIBLE);
      					text.setVisibility(View.INVISIBLE);
      					textresult.setVisibility(View.INVISIBLE);
-     					
      				}
      			}
      		});
@@ -530,6 +535,13 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
         	countImages++;
         }
 
+        }
+        else if (faceState==IDLE)
+        {
+            Message msg = new Message();
+            String textTochange = "IDLE";
+            msg.obj = textTochange;
+            mHandler.sendMessage(msg);
         }
         else if ((facesArray.length <= 0) && (faceState==SEARCHING))
         {
