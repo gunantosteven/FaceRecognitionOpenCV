@@ -190,6 +190,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
                     if(mOpenCvCameraView.isFrontCameraAvailable())
                     {
                         // use front camera first run
+                        mChooseCamera=frontCam;
                         mOpenCvCameraView.setCameraIndex(org.opencv.android.CameraBridgeViewBase.CAMERA_ID_FRONT );
                     }
                     mOpenCvCameraView.enableView();
