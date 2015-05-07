@@ -135,6 +135,14 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_stat_camera" />
 
+            <ToggleButton
+                android:id="@+id/toggleButtonService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/StartService"
+                android:textOff="@string/StartService"
+                android:textOn="@string/StopService" />
+
 
         </LinearLayout>
 
