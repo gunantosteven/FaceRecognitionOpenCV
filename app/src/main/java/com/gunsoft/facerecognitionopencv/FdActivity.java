@@ -21,25 +21,25 @@ import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
-import com.gunsoft.facerecognitionopencv.R;
 
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
-import com.googlecode.javacv.cpp.opencv_imgproc;
+import com.gunsoft.facerecognitionopencv.service.BlockingService;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
 
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -113,7 +113,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
     Handler mHandler;
   
     PersonRecognizer fr;
-    ToggleButton toggleButtonGrabar,toggleButtonTrain,buttonSearch;
+    ToggleButton toggleButtonGrabar,toggleButtonTrain,buttonSearch, toggleButtonService;
     Button buttonCatalog;
     ImageView ivGreen,ivYellow,ivRed; 
     ImageButton imCamera;
@@ -223,6 +223,8 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
 
         setContentView(R.layout.face_detect_surface_view);
 
+
+
         mOpenCvCameraView = (Tutorial3View) findViewById(R.id.tutorial3_activity_java_surface_view);
    
         mOpenCvCameraView.setCvCameraViewListener(this);
@@ -284,6 +286,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
         toggleButtonGrabar=(ToggleButton)findViewById(R.id.toggleButtonGrabar);
         buttonSearch=(ToggleButton)findViewById(R.id.buttonBuscar);
         toggleButtonTrain=(ToggleButton)findViewById(R.id.toggleButton1);
+        toggleButtonService = (ToggleButton) findViewById(R.id.toggleButtonService);
         textState= (TextView)findViewById(R.id.textViewState);
         ivGreen=(ImageView)findViewById(R.id.imageView3);
         ivYellow=(ImageView)findViewById(R.id.imageView4);
@@ -360,6 +363,37 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
 			}
 
 		});
+
+        toggleButtonService.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                savePreferences("CheckBox_Value", toggleButtonService.isChecked());
+                if (toggleButtonService.isChecked()) {
+
+                    try {
+
+                        startService(new Intent(FdActivity.this, BlockingService.class));
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.printStackTrace();
+                    }
+
+                } else {
+
+                    try {
+
+                        stopService(new Intent(FdActivity.this, BlockingService.class));
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+
+        });
+
+
         
      
 
@@ -423,6 +457,28 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
         {
         	Log.e("Error","Error creating directory");
         }
+
+        loadSavedPreferences();
+    }
+
+    private void loadSavedPreferences() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean checkBoxValue = sharedPreferences.getBoolean("CheckBox_Value", false);
+        if (checkBoxValue) {
+            toggleButtonService.setChecked(true);
+        } else {
+            toggleButtonService.setChecked(false);
+        }
+
+
+    }
+
+    private void savePreferences(String key, boolean value) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
     }
     
     void grabarOnclick()
@@ -652,6 +708,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
 //            }
 //        }
    }
-    
+
+
 
 }
