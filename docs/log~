@@ -4,3 +4,8 @@
 4. Make program independent from dependecy opencv manager : http://stackoverflow.com/questions/23541938/opencv-android-without-opencv-manager
 5. Make camera portrait : http://stackoverflow.com/questions/28851864/opencv-android-portrait-mode-full-screen-setting/29259408#29259408
 6. Use front camera first : http://stackoverflow.com/questions/8775872/how-to-detect-where-front-facing-camera-placed-on-device
+7. lock application : 
+   - http://stackoverflow.com/questions/19852069/blocking-android-apps-programatically
+   - http://stackoverflow.com/questions/24866799/checkbox-should-saved-and-retrieved-after-closing-the-app-i-tried-it-with-share
+   - http://stackoverflow.com/questions/12016623/android-service-always-keeps-running?lq=1
+   - http://stackoverflow.com/questions/20943407/create-an-android-lock-screen
