@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">OCV Face Recognition</string>
     <string name="BLANK"></string>
     <string name="STrain">Train</string>
@@ -16,4 +17,11 @@
     <string name="SSearching">Searching</string>
     <string name="SFrontCamera">Front Camera</string>
     <string name="SBackCamera">Back Camera</string>
+    <string name="title_activity_asd">asd</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="StartService">Start Service</string>
+    <string name="StopService">Stop Service</string>
+    <string name="title_activity_lock">LockActivity</string>
+
 </resources>
