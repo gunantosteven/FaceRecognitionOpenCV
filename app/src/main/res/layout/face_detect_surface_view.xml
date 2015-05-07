@@ -141,7 +141,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/StartService"
                 android:textOff="@string/StartService"
-                android:textOn="@string/StopService" />
+                android:textOn="@string/StopService"
+                android:checked="false" />
 
 
         </LinearLayout>
