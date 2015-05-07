@@ -33,6 +33,10 @@
             android:label="@string/title_activity_lock" >
         </activity>
 
+	<service
+            android:name=".service.BlockingService"
+            android:enabled="true" />
+
     </application>
 
     <supports-screens android:resizeable="true"

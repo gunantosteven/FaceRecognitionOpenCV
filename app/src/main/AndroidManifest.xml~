@@ -28,6 +28,11 @@
             </intent-filter>
         </activity>
 
+	<activity
+            android:name=".LockActivity"
+            android:label="@string/title_activity_lock" >
+        </activity>
+
     </application>
 
     <supports-screens android:resizeable="true"
