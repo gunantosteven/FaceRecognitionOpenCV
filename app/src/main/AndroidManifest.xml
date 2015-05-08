@@ -29,8 +29,9 @@
 
 	<activity
             android:name=".LockActivity"
-            android:label="@string/title_activity_lock" >
-        </activity>
+            android:label="@string/title_activity_lock"
+            android:excludeFromRecents="true">
+    </activity>
 
 	<service
             android:name=".service.BlockingService"
