@@ -102,14 +102,11 @@ public class BlockingService extends Service {
             {
                 LockActivity.app = "";
             }
-            for(String packageName : apps)
+            if(activityOnTop.equals("com.bbm") && !activityOnTop.equals("com.gunsoft.facerecognitionopencv"))
             {
-                if(activityOnTop.equals(packageName) && !activityOnTop.equals("com.gunsoft.facerecognitionopencv"))
-                {
-                    Intent lockIntent = new Intent(this, LockActivity.class);
-                    lockIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    this.startActivity(lockIntent);
-                }
+                Intent lockIntent = new Intent(this, LockActivity.class);
+                lockIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                this.startActivity(lockIntent);
             }
             Toast.makeText(this, "My Service Running", Toast.LENGTH_LONG).show();
         }
