@@ -3,8 +3,6 @@ package com.gunsoft.facerecognitionopencv;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.Message;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -13,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.gunsoft.facerecognitionopencv.component.Tutorial3View;
+import com.gunsoft.facerecognitionopencv.method.PersonRecognizer;
 import com.gunsoft.facerecognitionopencv.service.BlockingService;
 
 import org.opencv.android.BaseLoaderCallback;
@@ -44,7 +44,7 @@ public class LockActivity extends Activity implements CameraBridgeViewBase.CvCam
     public static final int        JAVA_DETECTOR       = 0;
     public static final int        NATIVE_DETECTOR     = 1;
 
-    private Tutorial3View   mOpenCvCameraView;
+    private Tutorial3View mOpenCvCameraView;
     com.googlecode.javacv.cpp.opencv_contrib.FaceRecognizer faceRecognizer;
 
     private Mat mRgba;

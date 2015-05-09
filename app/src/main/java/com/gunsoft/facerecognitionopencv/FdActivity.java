@@ -26,7 +26,10 @@ import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
+import com.gunsoft.facerecognitionopencv.component.Tutorial3View;
+import com.gunsoft.facerecognitionopencv.method.PersonRecognizer;
 import com.gunsoft.facerecognitionopencv.service.BlockingService;
+import com.gunsoft.facerecognitionopencv.utility.Labels;
 
 import android.app.Activity;
 import android.content.Context;
@@ -103,7 +106,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
     
     String mPath="";
 
-    private Tutorial3View   mOpenCvCameraView;
+    private Tutorial3View mOpenCvCameraView;
     private int mChooseCamera = backCam;
     
     EditText text;
@@ -129,7 +132,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
     int[] labels = new int[(int)MAXIMG];
     int countImages=0;
     
-    labels labelsFile;
+    Labels labelsFile;
 
     static {
         if (!OpenCVLoader.initDebug()) {
@@ -221,7 +224,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        setContentView(R.layout.face_detect_surface_view);
+        setContentView(R.layout.activity_face_detection);
 
 
 
@@ -232,7 +235,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
         
         mPath=getFilesDir()+"/facerecogOCV/";
         		
-        labelsFile= new labels(mPath);
+        labelsFile= new Labels(mPath);
                  
         Iv=(ImageView)findViewById(R.id.imageView1);
         textresult = (TextView) findViewById(R.id.textView1);
@@ -306,7 +309,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
         buttonCatalog.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View view) {
         		Intent i = new Intent(com.gunsoft.facerecognitionopencv.FdActivity.this,
-                        com.gunsoft.facerecognitionopencv.ImageGallery.class);
+                        ImageGalleryActivity.class);
         		i.putExtra("path", mPath);
         		startActivity(i);
         	};
