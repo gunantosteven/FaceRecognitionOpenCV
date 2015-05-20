@@ -41,7 +41,7 @@ public  class PersonRecognizer {
   	 // path=Environment.getExternalStorageDirectory()+"/facerecog/faces/";
      mPath=path;
      labelsFile= new Labels(mPath);
-     
+
   
     }
     
@@ -61,7 +61,7 @@ public  class PersonRecognizer {
     
 	public void add(Mat m, String description) {
 		Bitmap bmp= Bitmap.createBitmap(m.width(), m.height(), Bitmap.Config.ARGB_8888);
-		 
+
 		Utils.matToBitmap(m,bmp);
 		bmp= Bitmap.createScaledBitmap(bmp, WIDTH, HEIGHT, false);
 		
@@ -158,7 +158,7 @@ public  class PersonRecognizer {
 		double p[] = new double[1];
 		IplImage ipl = MatToIplImage(m,WIDTH, HEIGHT);
 //		IplImage ipl = MatToIplImage(m,-1, -1);
-		
+
 		faceRecognizer.predict(ipl, n, p);
 		
 		if (n[0]!=-1)

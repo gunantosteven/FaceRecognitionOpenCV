@@ -4,7 +4,7 @@
 
     <application
         android:label="@string/app_name"
-        android:icon="@drawable/lightbulb"
+        android:icon="@drawable/facelock"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
 
         <activity android:name="com.gunsoft.facerecognitionopencv.FdActivity"

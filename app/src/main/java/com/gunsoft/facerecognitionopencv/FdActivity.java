@@ -118,7 +118,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
     PersonRecognizer fr;
     ToggleButton toggleButtonGrabar,toggleButtonTrain,buttonSearch, toggleButtonService;
     Button buttonCatalog;
-    ImageView ivGreen,ivYellow,ivRed; 
+    ImageView ivGreen,ivYellow,ivRed;
     ImageButton imCamera;
     
     TextView textState;
@@ -575,15 +575,15 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
        
         Mat m=new Mat();
         Rect r=facesArray[0];
-       
-        
+
+
         m=mRgba.submat(r);
         mBitmap = Bitmap.createBitmap(m.width(),m.height(), Bitmap.Config.ARGB_8888);
-        
-        
+
+
         Utils.matToBitmap(m, mBitmap);
        // SaveBmp(mBitmap,"/sdcard/db/I("+countTrain+")"+countImages+".jpg");
-        
+
         Message msg = new Message();
         String textTochange = "IMG";
         msg.obj = textTochange;
